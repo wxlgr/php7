@@ -39,7 +39,10 @@ class Captcha
   {
     $size = 20;
     $text = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    $font = realpath('font.otf',);
+    $font = realpath('font.otf');
+    // 解决路径中文乱码
+    // $font =iconv('utf-8','gbk',realpath('font.otf'));
+    // var_dump($font);die;
     $w = $this->width / ($this->len); //长度分成n份
 
     for ($i = 0; $i < $this->len; $i++) {
